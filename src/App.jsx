@@ -40,8 +40,8 @@ const App = () => {
             setNamePokemon(data[0].Name);
             setPicPokemon(data[0].img);
             setPicPokemon(data[0].img);
-            setTypePokemon(data[0].Types[0]);
-            setTypePokemon2(data[0].Types[1]);
+            setTypePokemon(data[0].Types[0].toLowerCase());
+            setTypePokemon2(data[0].Types[1].toLowerCase());
         }
         catch (err){
             console.error(err);
@@ -74,8 +74,9 @@ const App = () => {
                 <div className="info">
                     <h1>
                         <span className="hl">{namePokemon}</span></h1>
-                    <span className={"type electric"}>{typePokemon}</span>
-                    <span className="type normal">{typePokemon2}</span>
+                    <span className={"type "+ typePokemon}>{typePokemon}</span>
+                    <span className={"type "+ typePokemon2}>{typePokemon2}</span>
+                
                 </div>
             </li>
             <li>
