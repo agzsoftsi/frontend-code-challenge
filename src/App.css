@@ -230,15 +230,15 @@ html {
     background-position: 60% center;
 }
 input {
-    padding: 0.6rem 2rem 1.4rem 2rem;
-    font-size: 1.5rem;
-    margin: auto;
-    margin-top: 1rem;
+    outline: none;
+    font-size: 15px;
+    padding: 5px;
+    z-index: 1;
 }
 .suggestions {
     width: 80%;
     margin: auto;
-    margin-top: -1rem;
+    margin-top: 1rem;
     background: #2c2c2c;
     color: #fff;
 }
@@ -302,6 +302,24 @@ input {
     position: absolute;
     top: 4px;
     left: -3px;
+}
+.search-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.search-button button{
+    z-index: 2;
+    padding: 5px;
+    background: #6890f0;
+    color: white;
+    font-size: 15px;
+    outline: none;
+}
+.search-button button:hover{
+    background: #3663cc;
 }
 
 @keyframes rotate {
