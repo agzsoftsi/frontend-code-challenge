@@ -15,7 +15,7 @@ const App = () => {
         setSearch(evt.target.value);
     }
 
-    const searchPoke = async (poketype) =>{
+    const searchPoke = async (search) =>{
         try{
             const response = await fetch(URL_PATH);
             const data = await response.json();
@@ -25,11 +25,12 @@ const App = () => {
                 const dataFound = data.filter(elem => (elem.Types.toLowerCase()).map(type => type === search.toLowerCase()));
                 return dataFound;
             }*/
-
+            
             return dataFound;
         }
         catch (err){
             console.error(err);
+            
         }
     }
 
@@ -41,10 +42,17 @@ const App = () => {
             setPicPokemon(data[0].img);
             setPicPokemon(data[0].img);
             setTypePokemon(data[0].Types[0].toLowerCase());
-            setTypePokemon2(data[0].Types[1].toLowerCase());
+            if(data[0].Types[1]){
+                setTypePokemon2(data[0].Types[1].toLowerCase());
+            }
+            document.querySelector('.with-res').classList.remove('hide-result');
+            document.querySelector('.without-res').classList.add('hide-result');
+            
         }
         catch (err){
             console.error(err);
+            document.querySelector('.with-res').classList.add('hide-result');
+            document.querySelector('.without-res').classList.remove('hide-result');
         }
         
     }
@@ -69,7 +77,7 @@ const App = () => {
         
         <div className="loader"></div>
         <ul className="suggestions">
-            <li>
+            <li className="with-res hide-result">
                 <img src={picPokemon} alt="" />
                 <div className="info">
                     <h1>
@@ -79,7 +87,7 @@ const App = () => {
                 
                 </div>
             </li>
-            <li>
+            <li className="without-res hide-result">
                 <img src="https://cyndiquil721.files.wordpress.com/2014/02/missingno.png" alt="" />
                 <div className="info">
                     <h1 className="no-results">

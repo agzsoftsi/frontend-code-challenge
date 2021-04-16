@@ -259,6 +259,7 @@ input {
     margin-top: 1.8rem;
     margin-bottom: 0.5rem;
 }
+
 .suggestions li:last-of-type {
     border-bottom: 0;
 }
@@ -279,6 +280,10 @@ input {
 .max-cp small {
     display: inline-block;
     font-size: 0.8rem;
+}
+
+.hide-result{
+    display: none !important;
 }
 
 .loader {
