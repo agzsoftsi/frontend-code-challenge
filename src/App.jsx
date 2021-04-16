@@ -42,9 +42,13 @@ const App = () => {
             setPicPokemon(data[0].img);
             setPicPokemon(data[0].img);
             setTypePokemon(data[0].Types[0].toLowerCase());
-            if(data[0].Types[1]){
+            if(!data[0].Types[1]){
+                setTypePokemon2('hide-result');
+            }
+            else{
                 setTypePokemon2(data[0].Types[1].toLowerCase());
             }
+            
             document.querySelector('.with-res').classList.remove('hide-result');
             document.querySelector('.without-res').classList.add('hide-result');
             
